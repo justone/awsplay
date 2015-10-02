@@ -4,10 +4,9 @@
             [clojure.string :refer [lower-case]]))
 
 (defn flatten-tags [b]
-  (->> (:tags b)
-       (map (juxt (comp keyword lower-case :key) :value))
-       (into {})
-       (assoc b :tags)))
+  (update b :tags #(->> %
+                        (map (juxt (comp keyword lower-case :key) :value))
+                        (into {}))))
 
 (defn ainstances []
   (->> (describe-instances)
