@@ -8,4 +8,5 @@
                  [aprint "0.1.3"]]
   :main ^:skip-aot awsplay.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}
+             :dev {:plugins [[mvxcvi/whidbey "1.0.0"]]}})
